@@ -133,7 +133,7 @@ let starWarsData = [{
 
 const returnNames = (arr) => {
   // Solution code here...
-  const returnNames=[];
+  let newArr=[];
   arr.reduce((acc,val,ind)=>{
     newArr.push(acc=val.name)
   },{})
