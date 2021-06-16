@@ -96,8 +96,7 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  let regex=/[0-9]/;
-  return regex.text(input);
+  return /[0-9]/.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,8 +108,7 @@ Write a function named containsWorld that takes in a string or number of any len
 
 const containsWorld = (input) => {
   // Solution code here...
-  let regex=/(world)/;
-  return regex.text(input);
+  return /(world)/.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -123,11 +121,12 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  let regex=str.match(/[A-Z][A-Za-z]+/g);
-  if(regex===null){
-    return [];
+  const regex=/[A-Z][A-Za-z]+/g;
+  let test=str.match(regex);
+  if(test){
+    return test;
   }else{
-    return regex;
+    return [];
   }
 };
 
