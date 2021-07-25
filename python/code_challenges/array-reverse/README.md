@@ -1,4 +1,3 @@
-Documentation: Challenge README.md
 # Reverse an Array
 
 Ways to reverse the list .
