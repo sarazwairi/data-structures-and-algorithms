@@ -26,3 +26,9 @@ To run your tests
 # lab 1, 401 (array-reverse)
 
 [array-reverse](python/code_challenges/array-reverse/README.md)
+
+
+# lab 2, 401 (array-insert-shift)
+
+[array-insert-shift](python/code_challenges/array-insert-shift)
+
