@@ -32,3 +32,9 @@ To run your tests
 
 [array-insert-shift](python/code_challenges/array-insert-shift)
 
+
+# lab3 , 401 (array-binary-search)
+
+[array-binary-search](python/code_challenges/array-binary-search)
+
+
