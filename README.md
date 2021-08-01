@@ -39,6 +39,6 @@ To run your tests
 
 
 
-# lab6 , 401 (array-binary-search)
+# lab6 , 401 (linked_list_insertion)
 
 [linked_list_insertion](python/linked_list/README.md)
