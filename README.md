@@ -38,3 +38,7 @@ To run your tests
 [array-binary-search](python/code_challenges/array-binary-search)
 
 
+
+# lab6 , 401 (linked_list_insertion)
+
+[linked_list_insertion](python/linked_list/README.md)
