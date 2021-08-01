@@ -69,4 +69,33 @@ def test_all_values():
 
 
 
+# code challenge 7:
 
+# Can successfully add a node to the end of the linked list
+
+def test_append():
+    l1=LinkedList()
+    l1.append(10)
+    assert l1.head.value is 10
+    l1.append(20)
+    assert l1.head.next.value is 20
+    assert l1.head.next.next is None
+
+def test_insert_Before():
+    l1=LinkedList()
+    l1.append(1)
+    l1.append(2)
+    l1.append(3)
+    l1.insert_Before(2,40)
+    assert l1.head.next.value==40
+    l1.insert_Before(40,60)
+    assert l1.head.next.value==60
+
+def test_insert_After():
+    l1=LinkedList()
+    l1.append(1)
+    l1.append(2)
+    l1.append(3)
+    l1.insert_Before(2,40)
+    assert l1.head.next.value==40
+    
