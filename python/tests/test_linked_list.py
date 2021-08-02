@@ -98,4 +98,17 @@ def test_insert_After():
     l1.append(3)
     l1.insert_Before(2,40)
     assert l1.head.next.value==40
-    
+
+def test_kthFromEnd():
+    l1=LinkedList()
+    l1.append(2)
+    l1.append(3)
+    l1.append(20)
+    assert l1.kthFromEnd(1)==3
+    assert l1.kthFromEnd(3)=='short link_list'
+    assert l1.kthFromEnd(-1)=='negative'
+
+
+
+
+
