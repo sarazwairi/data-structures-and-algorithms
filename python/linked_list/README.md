@@ -40,3 +40,21 @@ Write the following methods for the Linked List class:
 insert , append,,,,takes any value as an argument and adds a new node with a O(1)time performance ,,, (ps:ignore the one on the white board its not O(N))
 
 
+# code challenge  7:
+
+# Challenge Summary
+
+kth from end
+
+    argument: a number, k, as a parameter.
+    Return the node’s value that is k places from the tail of the linked list.
+    You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+
+## Whiteboard Process
+
+![linked_list](linked_list_kth.jpg)
+
+## Approach & Efficiency
+
+O(n) for space and time
