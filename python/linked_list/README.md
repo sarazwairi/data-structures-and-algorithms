@@ -58,3 +58,17 @@ kth from end
 ## Approach & Efficiency
 
 O(n) for space and time
+
+# code challenge  8:
+
+# Challenge Summary
+
+Zip two linked lists.
+
+## Whiteboard Process
+
+![linked_list_zip](linked_list_zip.jpg)
+
+## Approach & Efficiency
+
+O(1) for space and time o(n)

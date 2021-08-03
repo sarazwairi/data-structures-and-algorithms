@@ -88,18 +88,18 @@ class LinkedList:
     def kthFromEnd(self,k):
         try:
             if k<0 :
-               return 'negative'
+                    return 'negative'
             current=self.head
             values=[]
             while(current.next!=None):
-               values.append(current.value)
-               current=current.next
+                    values.append(current.value)
+                    current=current.next
             else:
                 values.append(current.value)
-            # values.reverse()
-            return values[::-1][k]
+                    # values.reverse()
+                return values[::-1][k]
         except:
-            return 'short link_list'
+                return ('short link_list')
 
 
 
@@ -110,4 +110,4 @@ l1=LinkedList()
 l1.append(2)
 l1.append(5)
 l1.append(20)
-print(l1.kthFromEnd(1))
+# print(l1.kthFromEnd(1))
