@@ -86,19 +86,20 @@ class LinkedList:
 # code challenge 7:
 
     def kthFromEnd(self,k):
-
-        if k<0 :
-               return 'negative'
-        current=self.head
-        values=[]
-        while(current.next!=None):
+        try:
+            if k<0 :
+                    return 'negative'
+            current=self.head
+            values=[]
+            while(current.next!=None):
+                    values.append(current.value)
+                    current=current.next
+            else:
                 values.append(current.value)
-                current=current.next
-        if values.append(current.value):
-                # values.reverse()
+                    # values.reverse()
                 return values[::-1][k]
-        else:
-               raise Exception('short link_list')
+        except:
+                return ('short link_list')
 
 
 

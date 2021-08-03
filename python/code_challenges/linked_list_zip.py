@@ -26,4 +26,11 @@ def zipLists(list1, list2):
         l2current.next=l1next
     elif l2next is not None:
         l2current.next=l2current
-    return list1
+        l1current.next=l2next
+
+    return str(list1)
+
+
+# list1=[1,2,3]
+# list2=[4,5,6]
+# print(zipLists(list1,list2))
