@@ -1,4 +1,6 @@
 from linked_list.linked_list import LinkedList
+from code_challenges.
+
 
 
 def test_import():
@@ -109,6 +111,43 @@ def test_kthFromEnd():
     assert l1.kthFromEnd(-1)=='negative'
 
 
+def test_zipLists_first_longer():
+    l2=LinkedList()
+    l2.append(1)
+    l2.append(3)
+    l2.append(2)
+    l1=LinkedList()
+    l1.append(5)
+    l1.append(9)
+
+    actual=zipLists(l1,l2)
+    expected=[1,5,3,9,2]
+    assert actual==expected
+
+
+def test_zipLists_second_longer():
+    l2=LinkedList()
+    l2.append(5)
+    l2.append(9)
+    l2.append(4)
+    l1=LinkedList()
+    l1.append(1)
+    l1.append(3)
+    actual=zipLists(l1,l2)
+    expected=[1,5,3,9,4]
+    assert actual==expected
 
 
 
+def test_zipLists_equal():
+    l2=LinkedList()
+    l2.append(5)
+    l2.append(9)
+    l2.append(4)
+    l1=LinkedList()
+    l1.append(3)
+    l1.append(1)
+    l1.append(2)
+    actual=zipLists(l1,l2)
+    expected=[1,5,3,9,2,4]
+    assert actual==expected
