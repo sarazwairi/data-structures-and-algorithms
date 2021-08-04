@@ -99,7 +99,7 @@ class LinkedList:
                     # values.reverse()
                 return values[::-1][k]
         except:
-                return ('short link_list')
+            raise Exception ('short link_list')
 
 
 

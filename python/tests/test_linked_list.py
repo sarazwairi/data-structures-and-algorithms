@@ -1,6 +1,6 @@
 from linked_list.linked_list import LinkedList
 from code_challenges.linked_list_zip import zipLists
-
+import pytest
 
 
 def test_import():
@@ -107,8 +107,12 @@ def test_kthFromEnd():
     l1.append(3)
     l1.append(20)
     assert l1.kthFromEnd(1)==3
-    assert l1.kthFromEnd(3)=='short link_list'
     assert l1.kthFromEnd(-1)=='negative'
+    with pytest.raises(Exception,match='short link_list'):
+        l1.kthFromEnd(k=100)
+
+
+
 
 
 def test_zipLists_first_longer():
