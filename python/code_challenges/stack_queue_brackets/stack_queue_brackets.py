@@ -1,18 +1,43 @@
-open_bracket=["[","{","("]
-close_bracket=["]","}",")"]
+class Node:
+  def __init__(self , value=None):
+
+    self.value= value
+    self.next=None
+
+class Stack:
+  def __init__(self,node=None):
+    self.top=node
+
+  def push(self, value):
+    node= Node(value)
+    node.next = self.top
+    self.top = node
+
+  def pop(self):
+
+    temp=self.top
+    self.top=self.top.next
+    temp.next=None
+    return temp.value
+
+
+
+open_bracket=("[","{","(")
+close_bracket=("]","}",")")
 
 def  validate_brackets(str):
-    stack=[]
+    stack=Stack()
+
     for i in str:
         if i in open_bracket:
-            stack.append(i)
+            stack.push(i)
         elif i in close_bracket:
             y=close_bracket.index(i)
-            if (len(stack)>0) and (open_bracket(y)==stack[len(stack)-1]):
+            if (Stack.top.value==open_bracket(y)):
                 stack.pop()
             else:
                 return False
-        if len(stack)==0:
+        if not stack.top:
             return True
         else:
             return False

@@ -60,27 +60,26 @@ class BinarySearchTree(BinaryTree):
 
     def add(self,value):
         new_node=Node(value)
+        curr=self.root
 
-        if self.root is None:
+        if self.root==None:
             self.root=new_node
 
-            curr=self.root
 
         while curr !=None:
             if curr.value>value:
                 if curr.left is None:
                     curr.left=new_node
+                    return value
                 else:
                     curr=curr.left
 
-
-            elif curr.value<value:
+            else:
                 if curr.right is None:
                     curr.right=new_node
+                    return value
                 else:
                     curr=curr.right
-            if curr.value==value:
-                return "already exist "
 
     def contains(self,target):
         if self.root is None:
@@ -101,10 +100,17 @@ if __name__=="__main__":
     node1=Node(1)
     node1.left=Node(2)
     node1.right=Node(3)
+    # binary_tree=BinaryTree(node1)
+    # binary_tree.pre_order()
+    # binary_tree.in_order()
+    # binary_tree.post_order()
 
-    binary_tree=BinaryTree(node1)
-    binary_tree.pre_order()
-    binary_tree.in_order()
-    binary_tree.post_order()
-
+    bst=BinarySearchTree()
+    bst.add(1)
+    bst.add(2)
+    bst.add(3)
+    bst.add(6)
+    bst.add(5)
+    bst.add(6)
+    bst.post_order()
 
