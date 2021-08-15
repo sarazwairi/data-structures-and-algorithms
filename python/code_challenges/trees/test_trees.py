@@ -69,3 +69,31 @@ def test_post_order():
     actual=tree.post_order()
     expected=[3,5,2,4,1]
     assert actual==expected
+
+
+def test_max_value():
+    tree=BinaryTree(Node())
+    tree.root=Node(1)
+    tree.root.left=Node(5)
+    tree.root.right=Node(4)
+    tree.root.left.left=Node(3)
+    tree.root.right.right=Node(2)
+    actual=tree.max_value()
+    expected=5
+    assert actual== expected
+
+def test_max_none():
+    empty=BinaryTree()
+    actual=empty.max_value()
+    expected=None
+    assert actual==expected
+
+
+def test_max_value_false():
+    tree=BinaryTree(Node())
+    tree.root=Node(1)
+    tree.root.left=Node(5)
+    tree.root.right=Node(4)
+    tree.root.left.left=Node(3)
+    tree.root.right.right=Node(2)
+    assert tree.max_value()!= 4
