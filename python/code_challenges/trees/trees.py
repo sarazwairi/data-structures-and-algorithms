@@ -20,7 +20,7 @@ class BinaryTree:
                 preorder(root.right)
 
         preorder(self.root)
-        print(list)
+        # print(list)
         return list
 
     def in_order(self):
@@ -53,6 +53,17 @@ class BinaryTree:
         print(list)
         return list
 
+
+    def max_value(self):
+        if self.root is None:
+            return None
+        max=0
+        values=self.pre_order()
+        for value in values:
+            if value>max:
+
+                max=value
+        return max
 
 class BinarySearchTree(BinaryTree):
     def __init__(self,root=None):
@@ -100,17 +111,18 @@ if __name__=="__main__":
     node1=Node(1)
     node1.left=Node(2)
     node1.right=Node(3)
-    # binary_tree=BinaryTree(node1)
+    binary_tree=BinaryTree(node1)
     # binary_tree.pre_order()
     # binary_tree.in_order()
     # binary_tree.post_order()
+    print(binary_tree.max_value())
 
-    bst=BinarySearchTree()
-    bst.add(1)
-    bst.add(2)
-    bst.add(3)
-    bst.add(6)
-    bst.add(5)
-    bst.add(6)
-    bst.post_order()
+    # bst=BinarySearchTree()
+    # bst.add(1)
+    # bst.add(2)
+    # bst.add(3)
+    # bst.add(6)
+    # bst.add(5)
+    # bst.add(6)
+    # bst.post_order()
 

@@ -32,7 +32,6 @@ Space:O(1)
 ## API
 
 
-
 * Add
 
     Arguments: value
@@ -46,3 +45,42 @@ Space:O(1)
     Argument: value
     Returns: boolean indicating whether or not the value is in the tree at least once.
 
+## max Tree:
+
+# Challenge Summary
+
+Write the following method for the Binary Tree class
+
+    find maximum value
+
+        Arguments: none
+
+        Returns: number
+
+Find the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
+## Whiteboard Process
+
+![max_tree](max_tree.jpg)
+
+## Approach & Efficiency
+
+
+time : O(N)
+space: O(1)
+
+## Solution
+
+check over the tree values and return the max value
+
+```
+   tree=BinaryTree(Node())
+    tree.root=Node(1)
+    tree.root.left=Node(5)
+    tree.root.right=Node(4)
+    tree.root.left.left=Node(3)
+    tree.root.right.right=Node(2)
+    actual=tree.max_value()
+    expected=5
+    assert actual== expected
+```
