@@ -1,5 +1,4 @@
 
-from typing import Deque
 
 
 class Node:
@@ -52,14 +51,35 @@ class Queue:
        raise Exception('its empty')
      dequed=self.front.value
      self.front=self.front.next
+     if not self.front:
+         self.rear=None
      return dequed
 
   def is_empty(self):
-    if (not self.rear and self.front) or (self.rear and not self.front):
-      raise Exception("nothing here")
     return not self.rear
 
   def peek(self):
       if self.front is None:
         raise Exception("its empty")
       return self.front.value
+
+
+
+
+def breadth_first(tree):
+    if tree.root is None:
+        return []
+    queue=Queue()
+    queue.enqueue(tree.root)
+    output=[]
+
+    while not queue.is_empty():
+        front=queue.dequeue()
+        output.append(front.value)
+        left=front.left if hasattr(front,'left')else None
+        right=front.right if hasattr(front,'right')else None
+        if left:
+            queue.enqueue(front.left)
+        if right:
+            queue.enqueue(front.right)
+    return output

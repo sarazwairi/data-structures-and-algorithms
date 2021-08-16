@@ -3,7 +3,6 @@ from trees import Node,BinaryTree,BinarySearchTree
 
 
 
-
 # Can successfully instantiate an empty tree
 
 def test_instantiate_an_empty_tree():
@@ -97,3 +96,4 @@ def test_max_value_false():
     tree.root.left.left=Node(3)
     tree.root.right.right=Node(2)
     assert tree.max_value()!= 4
+

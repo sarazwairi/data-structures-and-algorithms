@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self,value=None,left=None,right=None):
         self.value=value
@@ -55,15 +56,25 @@ class BinaryTree:
 
 
     def max_value(self):
+
         if self.root is None:
             return None
-        max=0
-        values=self.pre_order()
-        for value in values:
-            if value>max:
+        else:
+            maxvalue=self.root.value
+            def fun(root1,root2,maxvalue):
+                if root1:
+                  if root1.value >maxvalue:
+                       maxvalue=root1.value
+                  maxvalue=fun(root1.left,root1.right,maxvalue)
+                if root2:
+                   if root2.value>maxvalue:
+                        maxvalue=root2.value
+                   maxvalue=fun(root2.left,root2.right,maxvalue)
+                return maxvalue
+        maxvalue=fun(self.root.left,self.root.right,maxvalue)
+        return maxvalue
 
-                max=value
-        return max
+
 
 class BinarySearchTree(BinaryTree):
     def __init__(self,root=None):
@@ -107,6 +118,12 @@ class BinarySearchTree(BinaryTree):
         return False
 
 
+
+
+
+
+
+
 if __name__=="__main__":
     node1=Node(1)
     node1.left=Node(2)
@@ -115,8 +132,7 @@ if __name__=="__main__":
     # binary_tree.pre_order()
     # binary_tree.in_order()
     # binary_tree.post_order()
-    print(binary_tree.max_value())
-
+    # print(binary_tree.max_value())
     # bst=BinarySearchTree()
     # bst.add(1)
     # bst.add(2)

@@ -1,6 +1,6 @@
 import pytest
-from code_challenges.stack_queue.stack_and_queue import Stack, Node ,Queue
-
+from code_challenges.stack_queue.stack_and_queue import Stack, Node ,Queue,breadth_first
+from code_challenges.trees.trees import BinarySearchTree
 
 @pytest.fixture
 def data():
@@ -98,3 +98,24 @@ def test_peek_empty_raise_exception():
         new_queue.peek()
 
 
+def test_breadth_first_tree_empty():
+    tree=BinarySearchTree()
+    actual=breadth_first(tree)
+    assert actual==[]
+
+def test_breadth_first_one_node():
+    tree=BinarySearchTree()
+    tree.add(5)
+    actual=breadth_first(tree)
+    assert actual==[5]
+
+
+
+def test_breadth_first_correct_order():
+    tree=BinarySearchTree()
+    input=[10,20,5,4,13,6]
+    for item in input:
+        tree.add(item)
+    actual=breadth_first(tree)
+    expected=[10,5,20,4,6,13]
+    assert actual==expected
