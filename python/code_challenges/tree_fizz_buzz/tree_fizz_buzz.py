@@ -1,16 +1,31 @@
-# from stack_queue.stack_and_queue import Node
+from stack_queue.stack_and_queue import Node,Queue
 # from trees.trees import BinaryTree
-
 
 class Node:
     def __init__(self,value):
         self.value=value
         self.children=[]
 
-class tree:
-    def __init__(self):
-        self.root=None
+def breadth_first(tree):
+    if tree.root is None:
+        return []
+    queue=Queue()
+    queue.enqueue(tree.root)
+    output=[]
 
+    while not queue.is_empty():
+        front=queue.dequeue()
+        output.append(front.value)
+        for i in range(len(front.children)):
+            queue.enqueue(front.children[i])
+    return output
+
+
+
+
+class Tree:
+    def __init__(self,root=None):
+        self.root=root
 
 def fizz_buzz_tree(tree):
 
@@ -23,7 +38,7 @@ def fizz_buzz_tree(tree):
                 elif node.children[i].value %3==0:
                         node.children[i].value="Fizz"
                 elif node.children[i].value%5==0:
-                        node.children[i].valu="Buzz"
+                        node.children[i].value="Buzz"
                 else:
                     node.children[i].value=str(node.children[i].value)
     traverse(tree.root)
@@ -32,7 +47,7 @@ def fizz_buzz_tree(tree):
     elif tree.root.value %3==0:
             tree.root.value="Fizz"
     elif tree.root.value%5==0:
-            tree.root.valu="Buzz"
+            tree.root.value="Buzz"
     else:
             tree.root.value=str(tree.root.value)
 
@@ -64,20 +79,20 @@ def fizz_buzz_tree(tree):
 
 
 if __name__=="__main__":
-    ktree =tree()
-    ktree.root = Node(2)
-    ktree.root.children+= [Node(5)]
-    ktree.root.children+= [Node(5)]
-    ktree.root.children[0].children+= [Node(2)]
-    ktree.root.children[0].children+= [Node(6)]
-    ktree.root.children[0].children[1].children+= [Node(5)]
-    ktree.root.children[0].children[1].children+= [Node(11)]
-    ktree.root.children[1].children+= [Node(9)]
-    ktree.root.children[1].children+= [Node(15)]
-    ktree.root.children[1].children[1].children+= [Node(30)]
-    ktree.root.children[0].children[1].children+= [Node(13)]
-    ktree.root.children[0].children[1].children+= [Node(4)]
 
-    after=fizz_buzz_tree(ktree)
-    print(after)
-    print(ktree.root.children[1].value)
+    ktree = Node(2)
+    ktree.children+= [Node(5)]
+    ktree.children+= [Node(5)]
+    ktree.children[0].children+= [Node(2)]
+    ktree.children[0].children+= [Node(6)]
+    ktree.children[0].children[1].children+= [Node(5)]
+    ktree.children[0].children[1].children+= [Node(11)]
+    ktree.children[1].children+= [Node(9)]
+    ktree.children[1].children+= [Node(15)]
+    ktree.children[1].children[1].children+= [Node(30)]
+    ktree.children[0].children[1].children+= [Node(13)]
+    ktree.children[0].children[1].children+= [Node(4)]
+    tree1=Tree(ktree)
+    after=fizz_buzz_tree(tree1)
+    print(breadth_first(after))
+    print(ktree.children[1].value)
