@@ -1,56 +1,56 @@
-from stack_queue.stack_and_queue import Node,Queue
-# from trees.trees import BinaryTree
-class Node:
-    def __init__(self,value):
-        self.value=value
-        self.children=[]
+# from stack_queue.stack_and_queue import Node,Queue
+# # from trees.trees import BinaryTree
+# class Node:
+#     def __init__(self,value):
+#         self.value=value
+#         self.children=[]
 
-def breadth_first(tree):
-    if tree.root is None:
-        return []
-    queue=Queue()
-    queue.enqueue(tree.root)
-    output=[]
+# def breadth_first(tree):
+#     if tree.root is None:
+#         return []
+#     queue=Queue()
+#     queue.enqueue(tree.root)
+#     output=[]
 
-    while not queue.is_empty():
-        front=queue.dequeue()
-        output.append(front.value)
-        for i in range(len(front.children)):
-            queue.enqueue(front.children[i])
-    return output
-
-
+#     while not queue.is_empty():
+#         front=queue.dequeue()
+#         output.append(front.value)
+#         for i in range(len(front.children)):
+#             queue.enqueue(front.children[i])
+#     return output
 
 
-class Tree:
-    def __init__(self,root=None):
-        self.root=root
 
-def fizz_buzz_tree(tree):
 
-    def traverse(node):
-        if node.children:
-            for i in range(len(node.children)):
-                traverse(node.children[i])
-                if node.children[i].value%15==0:
-                        node.children[i].value='fizz buzz'
-                elif node.children[i].value %3==0:
-                        node.children[i].value="Fizz"
-                elif node.children[i].value%5==0:
-                        node.children[i].value="Buzz"
-                else:
-                    node.children[i].value=str(node.children[i].value)
-    traverse(tree.root)
-    if tree.root.value%15==0:
-            tree.root.value='fizz buzz'
-    elif tree.root.value %3==0:
-            tree.root.value="Fizz"
-    elif tree.root.value%5==0:
-            tree.root.value="Buzz"
-    else:
-            tree.root.value=str(tree.root.value)
+# class Tree:
+#     def __init__(self,root=None):
+#         self.root=root
 
-    return tree
+# def fizz_buzz_tree(tree):
+
+#     def traverse(node):
+#         if node.children:
+#             for i in range(len(node.children)):
+#                 traverse(node.children[i])
+#                 if node.children[i].value%15==0:
+#                         node.children[i].value='fizz buzz'
+#                 elif node.children[i].value %3==0:
+#                         node.children[i].value="Fizz"
+#                 elif node.children[i].value%5==0:
+#                         node.children[i].value="Buzz"
+#                 else:
+#                     node.children[i].value=str(node.children[i].value)
+#     traverse(tree.root)
+#     if tree.root.value%15==0:
+#             tree.root.value='fizz buzz'
+#     elif tree.root.value %3==0:
+#             tree.root.value="Fizz"
+#     elif tree.root.value%5==0:
+#             tree.root.value="Buzz"
+#     else:
+#             tree.root.value=str(tree.root.value)
+
+#     return tree
 # def fizz_buzz_tree(tree):
 #    root=tree.root
 #    fizzlist=[]
