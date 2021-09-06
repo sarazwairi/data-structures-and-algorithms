@@ -27,11 +27,11 @@ class BinaryTree:
     def in_order(self):
         list=[]
         def inorder(root):
-            if root.left :
+            if root.left if hasattr(root,'left') else None:
                 inorder(root.left)
-            list.append(root.value)
+            list.append(root.value)if hasattr(root,'value') else None
 
-            if root.right :
+            if root.right if hasattr(root,'right') else None:
                 inorder(root.right)
 
         inorder(self.root)
