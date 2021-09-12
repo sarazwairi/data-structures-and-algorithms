@@ -9,7 +9,7 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 ## Approach & Efficiency
 
  time:o(1)    space:o(1)
- 
+
 ## API
 
 
@@ -34,3 +34,39 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
         Arguments: none
         Returns the total number of nodes in the graph
 
+# lab 36:Code Challenge:graph-breadth-first
+
+## Whiteboard Process
+
+![breath_graph](breath_graph.jpg)
+
+## Approach & Efficiency
+
+ time:o(n)    space:o(n)
+
+## Solution
+
+    def breadth_first(self,vertex1,action=(lambda x:None)):
+        nodes=list()
+        breadth=Queue()
+        visited=set()
+
+        breadth.enqueue(vertex1)
+        visited.add(vertex1)
+
+        while breadth:
+            front=breadth.dequeue()
+            action(front)
+            # nodes.add(front)
+            children=self.get_neighbors(front)
+            for n in children:
+               child=n.vertex
+               if child is not visited:
+                   visited.add(child)
+                   breadth.enqueue(child)
+        return nodes
+
+
+## Requirements
+
+The implementation uses adjacency list representation of graphs. list container is used to store lists of adjacent nodes and queue of nodes needed for BFS traversal.
