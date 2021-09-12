@@ -48,22 +48,24 @@ class Graph:
     def get_neighbors(self,vertex):
         return self._adjacency_list.get(vertex,[])
 
-    def breadth_first(self,vertex1,action=(lambda x:None)):
+    def breadth_first(self,vertex1=None,action=(lambda x:None)):
         nodes=list()
         breadth=Queue()
         visited=set()
-
+        if not vertex1:
+            return []
         breadth.enqueue(vertex1)
         visited.add(vertex1)
-
         while breadth:
             front=breadth.dequeue()
             action(front)
-            # nodes.add(front)
+            nodes.append(front)
             children=self.get_neighbors(front)
             for n in children:
                child=n.vertex
-               if child is not visited:
+               if child in visited:
+                   continue
+               else:
                    visited.add(child)
                    breadth.enqueue(child)
         return nodes
@@ -71,13 +73,20 @@ class Graph:
 
 if __name__== "__main__":
     graph=Graph()
-    node1=graph.add_node("1")
-    node2=graph.add_node("2")
-    node3=graph.add_node("3")
-
-    graph.add_edge(node1,node2)
-    graph.add_edge(node1,node3)
-
-
-    graph.breadth_first(node1,lambda v: print(v.value))
-
+    Pandora=graph.add_node("Pandora")
+    Arendelle=graph.add_node("Arendelle")
+    Metroville=graph.add_node("Metroville")
+    Monstroplolis=graph.add_node("Monstroplolis")
+    Narnia=graph.add_node("Narnia")
+    Naboo=graph.add_node("Naboo")
+    graph.add_edge(Pandora,Arendelle)
+    graph.add_edge(Arendelle,Pandora)
+    graph.add_edge(Arendelle,Metroville)
+    graph.add_edge(Metroville,Monstroplolis)
+    graph.add_edge(Monstroplolis,Narnia)
+    graph.add_edge(Monstroplolis,Naboo)
+    result=graph.breadth_first(Pandora)
+    result=[]
+    result=graph.breadth_first(Pandora)
+    actual=[node.value for node in result]
+    print (actual)

@@ -60,3 +60,35 @@ def test_empty_graph():
     actual=graph.size()
     assert actual==expected
 
+# lab 36:Code Challenge:graph-breadth-first
+# Pandora, Arendelle, Metroville, Monstroplolis, Narnia, Naboo
+def test_breadth_first():
+    graph=Graph()
+    Pandora=graph.add_node("Pandora")
+    Arendelle=graph.add_node("Arendelle")
+    Metroville=graph.add_node("Metroville")
+    Monstroplolis=graph.add_node("Monstroplolis")
+    Narnia=graph.add_node("Narnia")
+    Naboo=graph.add_node("Naboo")
+    graph.add_edge(Pandora,Arendelle)
+    graph.add_edge(Arendelle,Pandora)
+    graph.add_edge(Arendelle,Metroville)
+    graph.add_edge(Metroville,Monstroplolis)
+    graph.add_edge(Monstroplolis,Narnia)
+    graph.add_edge(Monstroplolis,Naboo)
+    result=graph.breadth_first(Pandora)
+    actual=[node.value for node in result]
+    assert actual==['Pandora','Arendelle', 'Metroville', 'Monstroplolis', 'Narnia', 'Naboo']
+
+def test_one_value_graph():
+    graph=Graph()
+    node=Node("Pandora")
+    result=graph.breadth_first(node)
+    actual=[node.value for node in result]
+    assert actual==["Pandora"]
+
+def test_empty_graph_breath():
+    graph=Graph()
+    result=graph.breadth_first()
+    actual=[node.value for node in result]
+    assert actual==[]
