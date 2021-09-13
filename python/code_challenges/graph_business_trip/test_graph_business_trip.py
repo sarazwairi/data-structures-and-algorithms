@@ -1,0 +1,55 @@
+import pytest
+from graph.graph import Graph
+from graph_business_trip.graph_business_trip import get_edges
+
+def test_multi_edge():
+    graph=Graph()
+    Pandora=graph.add_node("Pandora")
+    Arendelle=graph.add_node("Arendelle")
+    Metroville=graph.add_node("Metroville")
+    Monstroplolis=graph.add_node("Monstroplolis")
+    Narnia=graph.add_node("Narnia")
+    Naboo=graph.add_node("Naboo")
+    graph.add_edge(Pandora,Arendelle,82)
+    graph.add_edge(Arendelle,Pandora,82)
+    graph.add_edge(Arendelle,Metroville,99)
+    graph.add_edge(Metroville,Monstroplolis,105)
+    graph.add_edge(Monstroplolis,Narnia,26)
+    graph.add_edge(Monstroplolis,Naboo,42)
+    actual=get_edges(graph,['Pandora','Arendelle','Metroville'])
+    assert actual==(True, '$181')
+
+def test_mult_edge_notconncted():
+    graph=Graph()
+    Pandora=graph.add_node("Pandora")
+    Arendelle=graph.add_node("Arendelle")
+    Metroville=graph.add_node("Metroville")
+    Monstroplolis=graph.add_node("Monstroplolis")
+    Narnia=graph.add_node("Narnia")
+    Naboo=graph.add_node("Naboo")
+    graph.add_edge(Pandora,Arendelle,82)
+    graph.add_edge(Arendelle,Pandora,82)
+    graph.add_edge(Arendelle,Metroville,99)
+    graph.add_edge(Metroville,Monstroplolis,105)
+    graph.add_edge(Monstroplolis,Narnia,26)
+    graph.add_edge(Monstroplolis,Naboo,42)
+    actual=get_edges(graph,['Pandora','Naboo','Metroville'])
+    assert actual==(False, '$0')
+
+
+def test_get_edge_one_sector():
+    graph=Graph()
+    Pandora=graph.add_node("Pandora")
+    Arendelle=graph.add_node("Arendelle")
+    Metroville=graph.add_node("Metroville")
+    Monstroplolis=graph.add_node("Monstroplolis")
+    Narnia=graph.add_node("Narnia")
+    Naboo=graph.add_node("Naboo")
+    graph.add_edge(Pandora,Arendelle,82)
+    graph.add_edge(Arendelle,Pandora,82)
+    graph.add_edge(Arendelle,Metroville,99)
+    graph.add_edge(Metroville,Monstroplolis,105)
+    graph.add_edge(Monstroplolis,Narnia,26)
+    graph.add_edge(Monstroplolis,Naboo,42)
+    actual=get_edges(graph,['Pandora','Arendelle'])
+    assert actual==(True, '$82')
