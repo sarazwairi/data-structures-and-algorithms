@@ -5,7 +5,7 @@ def test_empty_tree():
     tree1=BinaryTree()
     tree2=BinaryTree()
     actual=tree_intersection(tree1,tree2)
-    expect=None
+    expect=[]
     assert actual== expect
 
 
@@ -19,7 +19,7 @@ def test_one_tree():
     bt1.root.left.left = Node("100")
     bt1.root.left.right = Node("50")
     bt1.root.right.left = Node("60")
-    assert None == tree_intersection(bt, bt1)
+    assert [] == tree_intersection(bt, bt1)
 
 
 def test_common_values():
@@ -36,4 +36,4 @@ def test_common_values():
     bt1.root.left.left = Node("5")
     bt1.root.left.right = Node("6")
     bt1.root.right.left = Node("7")
-    assert ['5','100','20'] == tree_intersection(bt, bt1)
+    assert ['20','100','5'] == tree_intersection(bt, bt1)

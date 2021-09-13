@@ -1,8 +1,39 @@
 from data_structures.hashtable import HashTable
-from trees.trees import BinaryTree,Node
+from code_challenges.trees.trees import BinaryTree,Node
+from code_challenges.stack_queue.stack_and_queue import Queue
 
-
-def tree_intersection(tree1,tree2):
+def tree_intersection(tree1, tree2):
+    if not tree1.root and not tree2.root:
+        return []
+    if not tree1.root:
+        return []
+    if not tree2.root:
+        return []
+    list = []
+    ht = HashTable()
+    def in_order(tree, hasht, firsttree=False):
+        common = []
+        queque = Queue()
+        queque.enqueue(tree.root)
+        while not queque.is_empty():
+            item = queque.dequeue()
+            if firsttree:
+                hasht.add(item.value, item.value)
+            else:
+                if hasht.contains(item.value):
+                    common += [item.value]
+            if item.left if hasattr(item, 'left') else None:
+                queque.enqueue(item.left)
+            if item.right if hasattr(item, 'right') else None:
+                queque.enqueue(item.right)
+        return common
+    _ = in_order(tree1, ht, True)
+    list = in_order(tree2, ht)
+    if len(list) > 0:
+        return list
+    else:
+        return []
+# def tree_intersection(tree1,tree2):
     # list1=tree1.in_order()
     # list2=tree2.in_order()
 
@@ -15,22 +46,9 @@ def tree_intersection(tree1,tree2):
     #     return output
     # else:
     #     return None
-    ht=HashTable()
-    list=[]
-    def in_order(node):
-        if ht.contains(str(node.value)):
-            list=[]
 
-            list+=[node.value]
-        else:
-            ht.add(str(node.value),True)
-        if node.left:
-            in_order(node.left)
-        if node.right:
-            in_order(node.right)
-    in_order(tree1.root)
-    in_order(tree2.root)
-    return list
+
+
 
 if __name__=="__main__":
     bt = BinaryTree()
