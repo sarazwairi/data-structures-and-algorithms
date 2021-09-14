@@ -70,3 +70,44 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 ## Requirements
 
 The implementation uses adjacency list representation of graphs. list container is used to store lists of adjacent nodes and queue of nodes needed for BFS traversal.
+
+
+# Depth first preorder traversal on a graph
+
+
+Write the following method for the Graph class:
+
+    depth first
+    Arguments: Node (Starting point of search)
+    Return: A collection of nodes in their pre-order depth-first traversal order
+    Display the collection
+
+
+## Whiteboard Process
+
+![](depth.jpg)
+
+## Approach & Efficiency
+
+Time: O(nlogn) Space: O(N)
+
+## Solution
+
+ def depth_first(self,start_vertex):
+        nodes=list()
+        visited=set()
+        if not start_vertex:
+            return []
+        nodes.append(start_vertex)
+        def walk(node):
+            children=self.get_neighbors(node)
+            for n in children:
+               child=n.vertex
+               if child in visited:
+                   continue
+               else:
+                   visited.add(child)
+                   nodes.append(child)
+                   walk(child)
+        walk(start_vertex)
+        return nodes
