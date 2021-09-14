@@ -5,7 +5,6 @@
 # size
 from typing import Deque
 
-
 class Node:
     def __init__(self,value):
         self.value=value
@@ -70,23 +69,61 @@ class Graph:
                    breadth.enqueue(child)
         return nodes
 
+    def depth_first(self,start_vertex=None):
+        nodes=list()
+        visited=set()
+        if not start_vertex:
+            return []
+        nodes.append(start_vertex)
+        def walk(node):
+            children=self.get_neighbors(node)
+            for n in children:
+               child=n.vertex
+               if child in visited:
+                   continue
+               else:
+                   visited.add(child)
+                   nodes.append(child)
+                   walk(child)
+        walk(start_vertex)
+        return nodes
 
 if __name__== "__main__":
     graph=Graph()
-    Pandora=graph.add_node("Pandora")
-    Arendelle=graph.add_node("Arendelle")
-    Metroville=graph.add_node("Metroville")
-    Monstroplolis=graph.add_node("Monstroplolis")
-    Narnia=graph.add_node("Narnia")
-    Naboo=graph.add_node("Naboo")
-    graph.add_edge(Pandora,Arendelle)
-    graph.add_edge(Arendelle,Pandora)
-    graph.add_edge(Arendelle,Metroville)
-    graph.add_edge(Metroville,Monstroplolis)
-    graph.add_edge(Monstroplolis,Narnia)
-    graph.add_edge(Monstroplolis,Naboo)
-    result=graph.breadth_first(Pandora)
-    result=[]
-    result=graph.breadth_first(Pandora)
-    actual=[node.value for node in result]
-    print (actual)
+    # Pandora=graph.add_node("Pandora")
+    # Arendelle=graph.add_node("Arendelle")
+    # Metroville=graph.add_node("Metroville")
+    # Monstroplolis=graph.add_node("Monstroplolis")
+    # Narnia=graph.add_node("Narnia")
+    # Naboo=graph.add_node("Naboo")
+    # graph.add_edge(Pandora,Arendelle)
+    # graph.add_edge(Arendelle,Pandora)
+    # graph.add_edge(Arendelle,Metroville)
+    # graph.add_edge(Metroville,Monstroplolis)
+    # graph.add_edge(Monstroplolis,Narnia)
+    # graph.add_edge(Monstroplolis,Naboo)
+    # result=graph.breadth_first(Pandora)
+    # result=[]
+    # result=graph.breadth_first(Pandora)
+    # actual=[node.value for node in result]
+    # print (actual)
+    node_a = graph.add_node("A")
+    node_b = graph.add_node("B")
+    node_c = graph.add_node("C")
+    node_g = graph.add_node("G")
+    node_d = graph.add_node("D")
+    node_e = graph.add_node("E")
+    node_h = graph.add_node("H")
+    node_f = graph.add_node("F")
+    graph.add_edge(node_a, node_b)
+    graph.add_edge(node_a, node_d)
+    graph.add_edge(node_b, node_c)
+    graph.add_edge(node_c, node_g)
+    graph.add_edge(node_b, node_d)
+    graph.add_edge(node_d, node_e)
+    graph.add_edge(node_d, node_f)
+    graph.add_edge(node_d, node_h)
+    graph.add_edge(node_f, node_h)
+    breadth = graph.depth_first()
+    actual = [vertex.value for vertex in breadth]
+    print(actual)
