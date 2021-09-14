@@ -17,19 +17,17 @@ def tree_intersection(tree1,tree2):
     #     return None
     ht=HashTable()
     list=[]
-    def in_order(node):
-        if ht.contains(str(node.value)):
-            list=[]
-
+    def in_order(node,list,firsttree=False):
+        if ht.contains(str(node.value)) and not firsttree:
             list+=[node.value]
         else:
-            ht.add(str(node.value),True)
+            ht.add(str(node.value),"")
         if node.left:
-            in_order(node.left)
+            in_order(node.left,list,firsttree)
         if node.right:
-            in_order(node.right)
-    in_order(tree1.root)
-    in_order(tree2.root)
+            in_order(node.right,list,firsttree)
+    in_order(tree1.root,list,True)
+    in_order(tree2.root,list)
     return list
 
 if __name__=="__main__":

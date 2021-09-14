@@ -36,4 +36,4 @@ def test_common_values():
     bt1.root.left.left = Node("5")
     bt1.root.left.right = Node("6")
     bt1.root.right.left = Node("7")
-    assert ['5','100','20'] == tree_intersection(bt, bt1)
+    assert ['20','100','5'] == tree_intersection(bt, bt1)
